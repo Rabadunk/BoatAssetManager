@@ -4,7 +4,8 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import PartCard from './PartCard.js';
-
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
 import './PartsList.css';
 
 // Sample initial parts data
@@ -34,18 +35,18 @@ const PartsList = () => {
   return (
     <Box className="parts-list-container">
       <h1>Boat Components</h1>
-      <Box>
+      <List>
         {parts.map((part, index) => (
-            <div>
+            <ListItemButton>
                 <PartCard name={part.name} mass={part.mass} centerOfMass={part.centerOfMass}/>
-            </div>
+            </ListItemButton>
         ))}
-      </Box>
+      </List>
 
       <Box className="button-row">
-        <Button className="open-add-part-button button" variant="contained" onClick={() => handleOpen()}>Add Part</Button>
-        <Button className="open-edit-part-button button" variant="contained" onClick={() => handleOpen()}>Edit Part</Button>
-        <Button className="open-delete-part-button button" variant="contained" onClick={() => handleOpen()}>Delete Part</Button>
+        <Button className="open-add-part-button button" variant="contained" onClick={() => handleOpen()}>Add</Button>
+        <Button className="open-edit-part-button button" variant="contained" onClick={() => handleOpen()}>Edit</Button>
+        <Button className="open-delete-part-button button" variant="contained" onClick={() => handleOpen()}>Delete</Button>
       </Box>
 
 

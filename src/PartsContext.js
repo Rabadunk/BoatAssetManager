@@ -36,6 +36,34 @@ export const PartsProvider = ({ children }) => {
         });
     };
 
+    const sortPart = (filter) => {
+
+        const updatedParts = state.parts;
+
+        switch (filter) {
+            case 'name':
+                updatedParts.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+                console.log("YOU ARE SORTING BY NAME");
+                break;
+            case 'mass':
+                updatedParts.sort((a,b) => a.mass - b.mass);
+                break;
+            case 'centerOfMass':
+                updatedParts.sort((a,b) => a.centerOfMass.x - b.centerOfMass.x);
+                break;
+            default:
+                updatedParts.sort((a,b) => a.name - b.name);
+        }
+
+      
+        dispatch({
+          type: "SORT_PART",
+          payload: {
+            parts: updatedParts
+          }
+        });
+    };
+
     const deletePart = (index) => {
 
         if(state.parts.length > 1) {
@@ -86,7 +114,8 @@ export const PartsProvider = ({ children }) => {
         centerOfMass: state.centerOfMass,
         addPart,
         editPart,
-        deletePart
+        deletePart,
+        sortPart
       };
 
     return <PartsContext.Provider value={value}>{children}</PartsContext.Provider>;

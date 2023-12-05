@@ -20,7 +20,7 @@ Bonus 3: Add a chart to plot the component (and boat)'s COGs on the YZ plane. Op
 - [x] Delete a component
 - [x] Calculate boats total mass
 - [x] Calculate boats center of mass
-- [ ] Sorting component columns
+- [x] Sorting component columns
 - [ ] Read only mode
 - [ ] Map parts mass on a Y-Z plane
 - [ ] Calculate boats center of gravity

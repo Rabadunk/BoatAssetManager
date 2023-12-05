@@ -3,23 +3,13 @@ import { calculateTotalMass } from "./utils/calculateTotalMass";
 import { calculateCenterOfMass } from "./utils/calculateCenterOfMass";
 
 const initialParts = [
-    { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-    { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-    { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-    { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-    { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-    { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-    { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-    { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-    { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-    { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-    { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-    { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-    { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-    { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-    { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-    { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-]
+    { name: 'Hull', mass: 5000, centerOfMass: { x: 0, y: 0, z: -2 } },
+    { name: 'Keel', mass: 800, centerOfMass: { x: 2, y: 0, z: -4 } },
+    { name: 'Mast', mass: 1200, centerOfMass: { x: 5, y: 0, z: 8 } },
+    { name: 'Boom', mass: 150, centerOfMass: { x: 1, y: 2, z: 8 } },
+    { name: 'Sails', mass: 200, centerOfMass: { x: -1, y: 5, z: 8 } },
+    // Add more parts as needed
+  ];
 
 export const initialState = {
     totalMass: calculateTotalMass(initialParts),
@@ -52,6 +42,14 @@ const partReducer = (state, action) => {
           ...state,
           parts: payload.parts
         };
+
+        case "SORT_PART":
+            console.log("SORT_PART", payload);
+      
+            return {
+              ...state,
+              parts: payload.parts
+            };
 
         case "UPDATE_TOTAL_MASS":
             console.log("UPDATE_TOTAL_MASS", payload);

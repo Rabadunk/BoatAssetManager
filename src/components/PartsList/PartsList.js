@@ -16,7 +16,7 @@ import PartCard from './PartCard.js';
 import './PartsList.css';
 
 const PartsList = () => {
-    const { parts, addPart, editPart, deletePart } = useParts();
+    const { parts, addPart, editPart, deletePart, sortPart } = useParts();
 
   const [newPartName, setNewPartName] = useState("New Part");
   const [newPartMass, setNewPartMass] = useState(20);
@@ -43,19 +43,25 @@ const PartsList = () => {
   const handleCloseEdit = () => setOpenEdit(false);
 
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedFilter, setSelectedFilter] = useState('name');
 
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
   };
 
+  const handleFilterClick = (filter) => {
+    sortPart(filter);
+    setSelectedFilter(filter);
+  };
+
   return (
     <Box className="parts-list-container">
         <ListItem className="part-list-item-button">
-            <ListItemText className="list-item-heading-name list-item-title">Name</ListItemText> 
+            <ListItemButton className="list-item-heading-name list-item-title" selected={selectedFilter === 'name'} onClick={(event) => handleFilterClick('name')}>Name</ListItemButton> 
             <Divider orientation="vertical" flexItem />
-            <ListItemText className="list-item-heading-mass list-item-title">Mass</ListItemText> 
+            <ListItemButton className="list-item-heading-mass list-item-title" selected={selectedFilter === 'mass'} onClick={(event) => handleFilterClick('mass')}>Mass</ListItemButton> 
             <Divider orientation="vertical" flexItem />
-            <ListItemText className="list-item-heading-com list-item-title">Center Of Mass</ListItemText> 
+            <ListItemButton className="list-item-heading-com list-item-title" selected={selectedFilter === 'centerOfMass'} onClick={(event) => handleFilterClick('centerOfMass')}>Center Of Mass</ListItemButton> 
         </ListItem>
       <List className = "part-list">
         

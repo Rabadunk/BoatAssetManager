@@ -12,13 +12,12 @@ Bonus 1: Add a 'read-only' mode so that the components and components list canno
 Bonus 2: Add sorting on each column so that items can be sorted by weight or coordinate. Optional: add filters
 Bonus 3: Add a chart to plot the component (and boat)'s COGs on the YZ plane. Optional: drag and drop components to move them around ...
 
-
 ## Checklist
 
 - [x] A components object that has three attributes, mass, (xyz) of center of mass, name
 - [x] Add a component
 - [x] Edit a component
-- [ ] Delete a component
+- [x] Delete a component
 - [ ] Calculate boats total mass
 - [ ] Calculate boats center of mass
 - [ ] Calculate boats center of gravity

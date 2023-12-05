@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 import Part from '../Part.js';
 
 // Sample initial parts data
@@ -8,6 +10,18 @@ const initialParts = [
   Part({ name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } }),
   Part({ name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } }),
 ];
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
 
 const PartsList = () => {
   const [parts, setParts] = useState(initialParts);
@@ -56,7 +70,16 @@ const PartsList = () => {
       <Modal
         open={open}
         onClose={handleClose}>
-        <div>Sugma</div>
+        <Box sx={style}>
+            <TextField id="outlined-basic" label="Name" variant="outlined" />
+            <TextField id="outlined-basic" label="Mass" variant="outlined" />
+            <TextField id="outlined-basic" label="Center Of Mass" variant="outlined" />
+            <Button onClick={() => handleClose()}>Cancel</Button>
+            <Button onClick={() => {
+                handleClose();
+                addPart("New Part", 12, { x: 1, y: 1, z: 1 });
+            }}>Add</Button>
+        </Box>
       </Modal>
     </div>
   );

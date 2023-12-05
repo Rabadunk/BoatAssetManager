@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import Part from '../Part.js';
+import Part from './Part.js';
 
 // Sample initial parts data
 const initialParts = [
@@ -25,6 +25,9 @@ const style = {
 
 const PartsList = () => {
   const [parts, setParts] = useState(initialParts);
+  const [newPartName, setNewPartName] = useState("New Part");
+  const [newPartMass, setNewPartMass] = useState(20);
+  const [newPartCOM, setNewPartCOM] = useState({ x: 2, y: 2, z: 2 });
   const [open, setOpen] = useState(false);
   
   const handleOpen = () => setOpen(true);
@@ -55,14 +58,14 @@ const PartsList = () => {
       <h1>Parts List</h1>
       <ul>
         {parts.map((part, index) => (
-          <li key={index}>
+          <div key={index}>
             {part.name} - Mass: {part.mass} - Center of Mass: (
             {part.centerOfMass.x}, {part.centerOfMass.y}, {part.centerOfMass.z})
             <Button onClick={() => editPart(index, 'NewName', 15, { x: 2, y: 2, z: 2 })}>
               Edit
             </Button>
             <Button onClick={() => deletePart(index)}>Delete</Button>
-          </li>
+          </div>
         ))}
       </ul>
       <Button onClick={() => handleOpen()}>Add Part</Button>
@@ -71,13 +74,13 @@ const PartsList = () => {
         open={open}
         onClose={handleClose}>
         <Box sx={style}>
-            <TextField id="outlined-basic" label="Name" variant="outlined" />
-            <TextField id="outlined-basic" label="Mass" variant="outlined" />
+            <TextField id="outlined-basic" label="Name" variant="outlined" onChange={(event)=>{setNewPartName(event.target.value)}}/>
+            <TextField id="outlined-basic" label="Mass" variant="outlined" type="number" onChange={(event)=>{setNewPartMass(event.target.value)}} />
             <TextField id="outlined-basic" label="Center Of Mass" variant="outlined" />
             <Button onClick={() => handleClose()}>Cancel</Button>
             <Button onClick={() => {
                 handleClose();
-                addPart("New Part", 12, { x: 1, y: 1, z: 1 });
+                addPart(newPartName, newPartMass, { x: 1, y: 1, z: 1 });
             }}>Add</Button>
         </Box>
       </Modal>

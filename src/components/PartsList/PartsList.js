@@ -110,7 +110,6 @@ const deletePart = () => {
 
   return (
     <Box className="parts-list-container">
-      <List className = "part-list">
         <ListItem className="part-list-item-button">
             <ListItemText className="list-item-heading-name list-item-title">Name</ListItemText> 
             <Divider orientation="vertical" flexItem />
@@ -118,6 +117,7 @@ const deletePart = () => {
             <Divider orientation="vertical" flexItem />
             <ListItemText className="list-item-heading-com list-item-title">Center Of Mass</ListItemText> 
         </ListItem>
+      <List className = "part-list">
         
         {parts.map((part, index) => (
             <ListItemButton className = "part-list-item-button" selected={selectedIndex === index} onClick={(event) => handleListItemClick(event, index)}>

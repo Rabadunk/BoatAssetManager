@@ -10,47 +10,14 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 
+import useParts from '../../PartsContext.js';
+
 import PartCard from './PartCard.js';
 import './PartsList.css';
 
-// Sample initial parts data
-const initialParts = [
-  { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-  { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-  { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-  { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-  { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-  { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-  { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-  { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-  { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-  { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-  { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-  { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-  { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-  { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-  { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-  { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-  { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-  { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-  { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-  { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-  { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-  { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-  { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-  { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-  { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-  { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-  { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-  { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-  { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-  { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-  { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-  { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-];
-
 const PartsList = () => {
-  const [parts, setParts] = useState(initialParts);
+    const { parts, addPart, editPart, deletePart } = useParts();
+
   const [newPartName, setNewPartName] = useState("New Part");
   const [newPartMass, setNewPartMass] = useState(20);
   const [newPartCOM, setNewPartCOM] = useState({ x: 2, y: 2, z: 2 });
@@ -81,33 +48,6 @@ const PartsList = () => {
     setSelectedIndex(index);
   };
 
-  // Function to add a new part
-  const addPart = (name, mass, centerOfMass) => {
-    const newPart = { name, mass, centerOfMass };
-    setParts([...parts, newPart]);
-  };
-
-  // Function to edit an existing part
-  const editPart = (index, name, mass, centerOfMass ) => {
-    const updatedParts = [...parts];
-    updatedParts[index] = { name, mass, centerOfMass };
-    setParts(updatedParts);
-  };
-
-// Function to delete a part
-const deletePart = () => {
-    if(parts.length > 1) {
-        const updatedParts = [...parts];
-        updatedParts.splice(selectedIndex, 1);
-        setSelectedIndex(0);
-        setParts(updatedParts);
-    } else {
-
-        alert("You need to have atleast one component, try add some and then delete this one.")
-    }
-
-};
-
   return (
     <Box className="parts-list-container">
         <ListItem className="part-list-item-button">
@@ -129,7 +69,7 @@ const deletePart = () => {
       <Box className="button-row">
         <Button className="open-add-part-button button" variant="contained" onClick={() => handleOpenAdd()}>Add</Button>
         <Button className="open-edit-part-button button" variant="contained" onClick={() => handleOpenEdit()}>Edit</Button>
-        <Button className="open-delete-part-button button" variant="contained" onClick={() => deletePart()}>Delete</Button>
+        <Button className="open-delete-part-button button" variant="contained" onClick={() => deletePart(parts[selectedIndex])}>Delete</Button>
       </Box>
 
 
@@ -158,7 +98,7 @@ const deletePart = () => {
                 <Button variant="contained" onClick={() => handleCloseAdd()} color="error" className="modal-button-cancel modal-button">Cancel</Button>
                 <Button onClick={() => {
                     handleCloseAdd();
-                    addPart(newPartName, newPartMass, newPartCOM);
+                    addPart({name: newPartName, mass: newPartMass, centerOfMass: newPartCOM});
                 }} variant="contained" className="modal-button">Add</Button>
             </Box>
         </Box>
@@ -189,7 +129,7 @@ const deletePart = () => {
                 <Button variant="contained" onClick={() => handleCloseEdit()} color="error" className="modal-button-cancel modal-button">Cancel</Button>
                 <Button onClick={() => {
                     handleCloseEdit();
-                    editPart(selectedIndex, newPartName, newPartMass, newPartCOM);
+                    editPart({name: newPartName, mass: newPartMass, centerOfMass: newPartCOM}, selectedIndex);
                 }} variant="contained" className="modal-button">Add</Button>
             </Box>
         </Box>

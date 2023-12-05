@@ -1,4 +1,4 @@
-const calculateTotalMass = (dataPoints) => {
+export const calculateTotalMass = (dataPoints) => {
     // Initialize variable to store the total mass
     let totalMass = 0;
   
@@ -9,3 +9,4 @@ const calculateTotalMass = (dataPoints) => {
   
     return totalMass;
 }
+

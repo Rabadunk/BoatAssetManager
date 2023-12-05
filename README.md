@@ -15,8 +15,8 @@ Bonus 3: Add a chart to plot the component (and boat)'s COGs on the YZ plane. Op
 
 ## Checklist
 
-- [ x ] A components object that has three attributes, mass, (xyz) of center of mass, name
-- [ x ] Add a component
+- [x] A components object that has three attributes, mass, (xyz) of center of mass, name
+- [x] Add a component
 - [ ] Edit a component
 - [ ] Delete a component
 - [ ] Calculate boats total mass

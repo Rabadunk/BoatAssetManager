@@ -34,10 +34,10 @@ const PartsList = () => {
 
   return (
     <Box className="parts-list-container">
-      <h1>Boat Components</h1>
-      <List>
+      <h1>Components</h1>
+      <List className = "part-list">
         {parts.map((part, index) => (
-            <ListItemButton>
+            <ListItemButton className = "part-list-item-button">
                 <PartCard name={part.name} mass={part.mass} centerOfMass={part.centerOfMass}/>
             </ListItemButton>
         ))}

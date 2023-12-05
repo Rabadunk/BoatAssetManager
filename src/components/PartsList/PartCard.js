@@ -1,12 +1,21 @@
 import { useState } from "react";
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
+
+import './Part.css';
 
 
 const PartCard = ({name, mass, centerOfMass}) => {
     return (
 
-      <div>
-        {name} - Mass: {mass} - Center of Mass: 
-      </div>
+      <ListItem className="part-list-item">
+        <ListItemText className="list-item-name">{name}</ListItemText> 
+        <Divider orientation="vertical" flexItem />
+        <ListItemText className="list-item-mass">{mass}</ListItemText> 
+        <Divider orientation="vertical" flexItem />
+        <ListItemText className="list-item-com">x: {centerOfMass.x} y: {centerOfMass.y} z: {centerOfMass.z}</ListItemText> 
+      </ListItem>
 
     );
 }

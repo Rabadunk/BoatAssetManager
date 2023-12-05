@@ -60,3 +60,35 @@
     margin-left: 1.3% !important;
     margin-right: 1.3% !important;
 }
+
+.add-new-part-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    background-color: white;
+    box-shadow: 24;
+    padding: 20px;
+}
+
+.modal-input-row {
+    width: 100%;
+}
+
+.modal-input {
+    width: 31%;
+    margin: 1% !important;
+}
+
+.modal-button-row {
+    width: 100%;
+}
+
+.modal-button {
+    width: 40%;
+}
+
+.modal-button-cancel {
+    margin-right: 20% !important;
+}

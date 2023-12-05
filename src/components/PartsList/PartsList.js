@@ -63,14 +63,31 @@ const PartsList = () => {
       {/* Add new part modal */}
       <Modal open={open} onClose={handleClose} className='add-new-part-modal'>
         <Box className='add-new-part-container'>
-            <TextField id="outlined-basic" label="Name" variant="outlined" onChange={(event)=>{setNewPartName(event.target.value)}}/>
-            <TextField id="outlined-basic" label="Mass" variant="outlined" type="number" onChange={(event)=>{setNewPartMass(event.target.value)}} />
-            <TextField id="outlined-basic" label="Center Of Mass" variant="outlined" />
-            <Button variant="contained" onClick={() => handleClose()} >Cancel</Button>
-            <Button onClick={() => {
-                handleClose();
-                addPart(newPartName, newPartMass, { x: 1, y: 1, z: 1 });
-            }} variant="contained">Add</Button>
+            <Box className="modal-input-row">
+                <h5>Name</h5>
+                <TextField id="outlined-basic" label="Name" variant="outlined" onChange={(event)=>{setNewPartName(event.target.value)}} className="modal-input"/>
+            </Box>
+
+            <Box className="modal-input-row">
+                <h5>Mass</h5>
+                <TextField id="outlined-basic" label="Mass" variant="outlined" type="number" onChange={(event)=>{setNewPartMass(event.target.value)}} className="modal-input"/>
+            </Box>
+
+            <Box className="modal-input-row">
+                <h5>Center Of Mass</h5>
+                <TextField id="outlined-basic" label="X" variant="outlined" type="number" onChange={(event)=>{setNewPartCOM({x: event.target.value, y: newPartCOM.y, z: newPartCOM.z})}} className="modal-input"/>
+                <TextField id="outlined-basic" label="Y" variant="outlined" type="number" onChange={(event)=>{setNewPartCOM({x: newPartCOM.x, y: event.target.value, z: newPartCOM.z})}}  className="modal-input"/>
+                <TextField id="outlined-basic" label="Z" variant="outlined" type="number" onChange={(event)=>{setNewPartCOM({x: newPartCOM.x, y: newPartCOM.y, z: event.target.value})}} className="modal-input"/>
+            </Box>
+
+
+            <Box className="modal-button-row">
+                <Button variant="contained" onClick={() => handleClose()} color="error" className="modal-button-cancel modal-button">Cancel</Button>
+                <Button onClick={() => {
+                    handleClose();
+                    addPart(newPartName, newPartMass, newPartCOM);
+                }} variant="contained" className="modal-button">Add</Button>
+            </Box>
         </Box>
       </Modal>
 

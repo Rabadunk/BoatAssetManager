@@ -1,7 +1,7 @@
 import { createContext, useReducer, useContext } from "react";
 import partReducer, { initialState } from "./PartReducer";
-import { calculateTotalMass } from "./components/Utils/calculateTotalMass";
-import { calculateCenterOfMass } from "./components/Utils/calculateCenterOfMass";
+import { calculateTotalMass } from "./utils/calculateTotalMass";
+import { calculateCenterOfMass } from "./utils/calculateCenterOfMass";
 
 const PartsContext = createContext(initialState);
 
@@ -52,12 +52,13 @@ export const PartsProvider = ({ children }) => {
       };
       
     const updateTotalMass = (parts) => {
-        let total = calculateTotalMass(parts);
+        let totalMass = calculateTotalMass(parts);
+        console.log("total mass: ", totalMass);
       
         dispatch({
           type: "UPDATE_TOTAL_MASS",
           payload: {
-            total
+            totalMass: totalMass
           }
         });
     };

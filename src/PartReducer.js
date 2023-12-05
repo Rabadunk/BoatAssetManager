@@ -1,24 +1,30 @@
+
+import { calculateTotalMass } from "./utils/calculateTotalMass";
+import { calculateCenterOfMass } from "./utils/calculateCenterOfMass";
+
+const initialParts = [
+    { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
+    { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
+    { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
+    { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
+    { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
+    { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
+    { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
+    { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
+    { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
+    { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
+    { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
+    { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
+    { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
+    { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
+    { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
+    { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
+]
+
 export const initialState = {
-    totalMass: 0,
-    parts: [
-        { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-        { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-        { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-        { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-        { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-        { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-        { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-        { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-        { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-        { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-        { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-        { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-        { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-        { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-        { name: 'Part1', mass: 10, centerOfMass: { x: 0, y: 0, z: 0 } },
-        { name: 'Part2', mass: 5, centerOfMass: { x: 1, y: 1, z: 1 } },
-    ],
-    centerOfMass: {x: 0, y: 0, z: 0}
+    totalMass: calculateTotalMass(initialParts),
+    parts: initialParts,
+    centerOfMass: calculateCenterOfMass(initialParts)
 };
 
 const partReducer = (state, action) => {

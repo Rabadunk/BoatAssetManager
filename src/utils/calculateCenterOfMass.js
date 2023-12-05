@@ -9,10 +9,11 @@ export const calculateCenterOfMass = (dataPoints) => {
     dataPoints.forEach((point) => {
       console.log(point);
       const { name, mass, centerOfMass } = point;
-      sumMass += mass;
-      sumX += mass * centerOfMass.x;
-      sumY += mass * centerOfMass.y;
-      sumZ += mass * centerOfMass.z;
+      const massNum = Number(mass);
+      sumMass += massNum;
+      sumX += massNum * Number(centerOfMass.x);
+      sumY += massNum * Number(centerOfMass.y);
+      sumZ += massNum * Number(centerOfMass.z);
     });
   
     // Calculate the center of mass
@@ -20,5 +21,5 @@ export const calculateCenterOfMass = (dataPoints) => {
     const centerY = sumY / sumMass;
     const centerZ = sumZ / sumMass;
   
-    return { x: centerX, y: centerY, z: centerZ };
+    return { x: centerX.toFixed(1), y: centerY.toFixed(1), z: centerZ.toFixed(1)};
 }

@@ -11,3 +11,10 @@
   height: 100vh;
   background-color: red;
 }
+
+.stats {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: white;
+}

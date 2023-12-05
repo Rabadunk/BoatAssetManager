@@ -37,7 +37,6 @@ const PartsList = () => {
 
   return (
     <Box className="parts-list-container">
-      <h1 className="parts-list-header">Components</h1>
       <List className = "part-list">
         <ListItem className="part-list-item-button">
             <ListItemText className="list-item-heading-name list-item-title">Name</ListItemText> 
@@ -46,6 +45,7 @@ const PartsList = () => {
             <Divider orientation="vertical" flexItem />
             <ListItemText className="list-item-heading-com list-item-title">Center Of Mass</ListItemText> 
         </ListItem>
+        
         {parts.map((part, index) => (
             <ListItemButton className = "part-list-item-button">
                 <PartCard name={part.name} mass={part.mass} centerOfMass={part.centerOfMass}/>
@@ -60,11 +60,9 @@ const PartsList = () => {
       </Box>
 
 
-      
-      <Modal
-        open={open}
-        onClose={handleClose}>
-        <Box>
+      {/* Add new part modal */}
+      <Modal open={open} onClose={handleClose} className='add-new-part-modal'>
+        <Box className='add-new-part-container'>
             <TextField id="outlined-basic" label="Name" variant="outlined" onChange={(event)=>{setNewPartName(event.target.value)}}/>
             <TextField id="outlined-basic" label="Mass" variant="outlined" type="number" onChange={(event)=>{setNewPartMass(event.target.value)}} />
             <TextField id="outlined-basic" label="Center Of Mass" variant="outlined" />
@@ -75,6 +73,9 @@ const PartsList = () => {
             }} variant="contained">Add</Button>
         </Box>
       </Modal>
+
+
+
     </Box>
   );
 }

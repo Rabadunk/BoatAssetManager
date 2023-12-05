@@ -4,10 +4,12 @@
     margin: 0;
     height: 100%;
     width: 100%;
-    background-color: red;
+    text-align: center;
+    border-bottom: 2px solid rgba(1, 1, 1, 0.1);
 }
 
 .list-item-name {
+    height: 100%;
     width: 30%;
 }
 

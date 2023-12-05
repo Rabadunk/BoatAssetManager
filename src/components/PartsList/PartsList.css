@@ -6,14 +6,38 @@
     background-color: white;
 }
 
+.parts-list-header {
+    width: 100%;
+    text-align: center;
+
+}
+
 .part-list {
     height: 100vh;
     overflow: scroll;
     padding: 0;
 }
 
+.list-item-title {
+    text-align: center;
+    border-top: 6px solid rgba(1, 1, 1, 0.1);
+    border-bottom: 2px solid rgba(1, 1, 1, 0.1);
+}
+
+.list-item-heading-name {
+    height: 100%;
+    width: 30%;
+}
+
+.list-item-heading-mass {
+    width: 13.3%;
+}
+
+.list-item-heading-com {
+    width: 50%;
+}
+
 .part-list-item-button {
-    height: 10%;
     width: 100%;
     padding: 0px !important;
 }

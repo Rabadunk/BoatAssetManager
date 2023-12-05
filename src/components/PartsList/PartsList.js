@@ -6,6 +6,9 @@ import TextField from '@mui/material/TextField';
 import PartCard from './PartCard.js';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
 import './PartsList.css';
 
 // Sample initial parts data
@@ -34,8 +37,15 @@ const PartsList = () => {
 
   return (
     <Box className="parts-list-container">
-      <h1>Components</h1>
+      <h1 className="parts-list-header">Components</h1>
       <List className = "part-list">
+        <ListItem className="part-list-item-button">
+            <ListItemText className="list-item-heading-name list-item-title">Name</ListItemText> 
+            <Divider orientation="vertical" flexItem />
+            <ListItemText className="list-item-heading-mass list-item-title">Mass</ListItemText> 
+            <Divider orientation="vertical" flexItem />
+            <ListItemText className="list-item-heading-com list-item-title">Center Of Mass</ListItemText> 
+        </ListItem>
         {parts.map((part, index) => (
             <ListItemButton className = "part-list-item-button">
                 <PartCard name={part.name} mass={part.mass} centerOfMass={part.centerOfMass}/>

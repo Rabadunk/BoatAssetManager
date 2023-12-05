@@ -37,18 +37,24 @@ export const PartsProvider = ({ children }) => {
     };
 
     const deletePart = (index) => {
-        const updatedParts = state.parts;
-        updatedParts.splice(index, 1);
 
-        updateTotalMass(updatedParts)
-        updateCenterOfMass(updatedParts);
-      
-        dispatch({
-          type: "DELETE_PART",
-          payload: {
-            parts: updatedParts
-          }
-        });
+        if(state.parts.length > 1) {
+            const updatedParts = state.parts;
+            updatedParts.splice(index, 1);
+    
+            updateTotalMass(updatedParts)
+            updateCenterOfMass(updatedParts);
+          
+            dispatch({
+              type: "DELETE_PART",
+              payload: {
+                parts: updatedParts
+              }
+            });
+        } else {
+            alert("You need at least one component in the list, try adding a new component then delete this one.");
+        }
+
       };
       
     const updateTotalMass = (parts) => {

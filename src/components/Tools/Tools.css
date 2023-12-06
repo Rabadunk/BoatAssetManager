@@ -1,0 +1,11 @@
+.tools-container {
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.tools-feature {
+    display: inline-block;
+    width: 50%;
+}

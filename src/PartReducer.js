@@ -27,7 +27,9 @@ const initialParts = [
 export const initialState = {
     totalMass: calculateTotalMass(initialParts),
     parts: initialParts.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)),
-    centerOfMass: calculateCenterOfMass(initialParts)
+    centerOfMass: calculateCenterOfMass(initialParts),
+    selectedIndex: 0,
+    readOnly: false
 };
 
 const partReducer = (state, action) => {
@@ -35,20 +37,21 @@ const partReducer = (state, action) => {
   
     switch (type) {
       case "UPDATE_PART":
-        console.log("EDIT_PART", payload);
+        console.log("UPDATE_PART", payload);
   
         return {
           ...state,
           parts: payload.parts
         };
 
-        case "SORT_PART":
-            console.log("SORT_PART", payload);
-      
-            return {
-              ...state,
-              parts: payload.parts
-            };
+      case "DELETE_PART":
+          console.log("DELETE_PART", payload);
+    
+          return {
+            ...state,
+            parts: payload.parts,
+            selectedIndex: payload.selectedIndex
+          };
 
         case "UPDATE_TOTAL_MASS":
             console.log("UPDATE_TOTAL_MASS", payload);
@@ -64,6 +67,22 @@ const partReducer = (state, action) => {
             return {
               ...state,
               centerOfMass: payload.centerOfMass
+        };
+
+        case "UPDATE_SELECTED_INDEX":
+          console.log("UPDATE_SELECTED_INDEX", payload);
+    
+          return {
+            ...state,
+            selectedIndex: payload.selectedIndex
+        };
+
+        case "TOGGLE_READ_ONLY":
+          console.log("TOGGLE_READ_ONLY", payload);
+    
+          return {
+            ...state,
+            readOnly: payload.readOnly
         };
 
         default:

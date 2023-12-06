@@ -3,24 +3,22 @@
   height: 100vh;
   margin: 0;
   padding: 0;
+  background-color: #393e41;
+  overflow: hidden;
 }
 
-.parts-list {
+.tool-bar {
   width: 35%;
-  height: 100vh;
+  height: 100%;
+  padding: 10px;
 }
 
-.stats {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  background-color: white;
-}
-
-.density-heat-map {
+.charts {
   position: absolute;
   top: 0px;
   right: 0px;
   width: 65%;
   height: 100vh;
+  text-align: center;
+  justify-content: center;
 }

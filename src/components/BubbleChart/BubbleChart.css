@@ -1,0 +1,9 @@
+.bubble-chart-container {
+    height: 500px;
+    width: 500px;
+    border-radius: 10px;
+    background-image: url("../../assets/zy.png");
+    margin-top: 10px;
+    margin-left: 20px;
+}
+  

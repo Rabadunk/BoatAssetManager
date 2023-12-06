@@ -57,7 +57,7 @@ export const PartsProvider = ({ children }) => {
 
       
         dispatch({
-          type: "SORT_PART",
+          type: "UPDATE_PART",
           payload: {
             parts: updatedParts
           }
@@ -67,16 +67,20 @@ export const PartsProvider = ({ children }) => {
     const deletePart = (index) => {
 
         if(state.parts.length > 1) {
+          console.log("deleting: ", state.parts[index]);
             const updatedParts = state.parts;
             updatedParts.splice(index, 1);
+
+            
     
             updateTotalMass(updatedParts)
             updateCenterOfMass(updatedParts);
           
             dispatch({
-              type: "UPDATE_PART",
+              type: "DELETE_PART",
               payload: {
-                parts: updatedParts
+                parts: updatedParts,
+                selectedIndex: 0
               }
             });
         } else {
@@ -108,14 +112,36 @@ export const PartsProvider = ({ children }) => {
         });
     };
 
+    const updateSelectedIndex = (index) => {
+        dispatch({
+          type: "UPDATE_SELECTED_INDEX",
+          payload: {
+            selectedIndex: index
+          }
+        });
+    }
+
+    const toggleReadOnly = (readOnly) => {
+      dispatch({
+        type: "TOGGLE_READ_ONLY",
+        payload: {
+          readOnly: readOnly
+        }
+      });
+    }
+
     const value = {
         totalMass: state.totalMass,
         parts: state.parts,
         centerOfMass: state.centerOfMass,
+        selectedIndex: state.selectedIndex,
+        readOnly: state.readOnly,
         addPart,
         editPart,
         deletePart,
-        sortPart
+        sortPart,
+        updateSelectedIndex,
+        toggleReadOnly
       };
 
     return <PartsContext.Provider value={value}>{children}</PartsContext.Provider>;

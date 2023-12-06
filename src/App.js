@@ -1,29 +1,40 @@
 import PartsList from "./components/PartsList/PartsList";
+import PartsCrud from "./components/PartsCrud/PartsCrud";
 import Stats from "./components/Stats/Stats";
-import BubbleChart from "./components/BubbleChart";
+import Tools from "./components/Tools/Tools";
+import BubbleChart from "./components/BubbleChart/BubbleChart";
 import Box from '@mui/material/Box';
+
+import useParts from './PartsContext.js';
 
 import './App.css';
 
 function App() {
 
-  const data = [
-    { x: 1, y: 2, z: 3, mass: 10 },
-    // Add more data points as needed
-  ];
+  const { readOnly } = useParts();
+
 
 
   return (
-    <Box className = "container" id="container">
-      <Box  className = "parts-list">
+    <Box className = "container">
+      <Box  className = "tool-bar">
+        <Stats/>
+        <Tools />
         <PartsList/>
+        {
+
+          readOnly ? null:
+
+          <PartsCrud/>
+
+        }
+          
+
       </Box>
-      <Box className = "density-heat-map">
+      <Box className = "charts">
         <BubbleChart />
       </Box>
-      <Box className = "stats">
-        <Stats/>
-      </Box>
+
     </Box>
 
   )

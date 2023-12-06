@@ -1,15 +1,12 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import CanvasJSReact from '@canvasjs/react-charts';
-import useParts from '../PartsContext';
-import './styles.css';
+import useParts from '../../PartsContext';
+import './BubbleChart.css';
 
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-
-
 const BubbleChart = () => {
-  const { parts, addPart, editPart, deletePart, sortPart } = useParts();
-
+  const { parts } = useParts();
 
   const options = {
     backgroundColor: "transparent",
@@ -18,16 +15,17 @@ const BubbleChart = () => {
     exportEnabled: true,
     title: {
       text: 'Center Of Mass on Z-Y Plane',
+      fontSize: 30
     },
     axisX: {
-      title: 'Z-axis',
-      minimum: -250,
-      maximum: 250,
+      title: 'Y-axis (m)',
+      minimum: -2.50,
+      maximum: 2.50,
     },
     axisY: {
-      title: 'Y-axis',
-      minimum: -250,
-      maximum: 250,
+      title: 'Z-axis (m)',
+      minimum: -10,
+      maximum: 26.5,
     },
     data: [
       {
@@ -37,9 +35,10 @@ const BubbleChart = () => {
           let datapoint = {
             name: part.name,
             mass: part.mass,
-            x: part.centerOfMass.z,
-            y: part.centerOfMass.y,
-            z: part.centerOfMass.x
+            x: part.centerOfMass.y,
+            y: part.centerOfMass.z,
+            z: part.centerOfMass.x,
+            markerColor: "rgba(1000, 0, 0, 0.5)",
         }
         
         return datapoint; }),
@@ -48,9 +47,12 @@ const BubbleChart = () => {
   };
 
   return (
+
     <div className="bubble-chart-container">
-      <CanvasJSChart options={options} />
+      <CanvasJSChart key={parts.toString()} options={options} />
     </div>
+
+
   );
 };
 

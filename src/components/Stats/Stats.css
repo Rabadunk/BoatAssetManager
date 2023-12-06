@@ -1,0 +1,18 @@
+.stats-container {
+    padding: 10px;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.stats-val {
+    display: inline-block;
+    width: 48%;
+    padding: 1%;
+}
+
+.stats-com-val {
+    display: inline-block;
+    width: 33.3%;
+}

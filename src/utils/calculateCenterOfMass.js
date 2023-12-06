@@ -7,7 +7,6 @@ export const calculateCenterOfMass = (dataPoints) => {
   
     // Iterate through the points to calculate the sums
     dataPoints.forEach((point) => {
-      console.log(point);
       const { name, mass, centerOfMass } = point;
       const massNum = Number(mass);
       sumMass += massNum;

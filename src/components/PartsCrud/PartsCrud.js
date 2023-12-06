@@ -37,6 +37,27 @@ const PartsCrud = () => {
 };
   const handleCloseEdit = () => setOpenEdit(false);
 
+  const validateNewPartAttributes = () => {
+
+    if (newPartMass < 0) {
+        alert('Please enter a mass greater that zero');
+        return false;
+    }
+
+    if (newPartCOM.y > 26.5 || newPartCOM.y < -10) {
+        alert('Please enter a y coordinate between -10 and 26.5');
+        return false;
+    }
+
+    if (newPartCOM.z > 2.5 || newPartCOM.z < -2.5) {
+        alert('Please enter a z coordinate between -2.5 and 2.5');
+        return false;
+    }
+
+    return true;
+
+  } 
+
 
   return (
     <Box className="parts-crud-container">
@@ -72,8 +93,11 @@ const PartsCrud = () => {
             <Box className="modal-button-row">
                 <Button variant="contained" onClick={() => handleCloseAdd()} color="error" className="modal-button-cancel modal-button">Cancel</Button>
                 <Button onClick={() => {
-                    handleCloseAdd();
-                    addPart({name: newPartName, mass: newPartMass, centerOfMass: newPartCOM});
+                    if(validateNewPartAttributes()) {
+                        handleCloseAdd();
+                        addPart({name: newPartName, mass: newPartMass, centerOfMass: newPartCOM});
+                    }
+
                 }} variant="contained" className="modal-button">Add</Button>
             </Box>
         </Box>
@@ -103,8 +127,12 @@ const PartsCrud = () => {
             <Box className="modal-button-row">
                 <Button variant="contained" onClick={() => handleCloseEdit()} color="error" className="modal-button-cancel modal-button">Cancel</Button>
                 <Button onClick={() => {
-                    handleCloseEdit();
-                    editPart({name: newPartName, mass: newPartMass, centerOfMass: newPartCOM}, selectedIndex);
+
+                    if(validateNewPartAttributes()) {
+                        handleCloseEdit();
+                        editPart({name: newPartName, mass: newPartMass, centerOfMass: newPartCOM}, selectedIndex);
+                    }
+
                 }} variant="contained" className="modal-button">Add</Button>
             </Box>
         </Box>

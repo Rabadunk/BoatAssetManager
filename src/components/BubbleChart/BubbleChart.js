@@ -14,7 +14,7 @@ const BubbleChart = () => {
     animationEnabled: true,
     exportEnabled: true,
     title: {
-      text: 'Center Of Mass on Z-Y Plane',
+      text: 'Center Of Mass on YZ Plane',
       fontSize: 30
     },
     axisX: {

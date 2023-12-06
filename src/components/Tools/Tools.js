@@ -41,7 +41,9 @@ const Tools = () => {
           >
             <MenuItem value={'name'}>Name</MenuItem>
             <MenuItem value={'mass'}>Mass</MenuItem>
-            <MenuItem value={'com'}>COM.x</MenuItem>
+            <MenuItem value={'comX'}>COM.x</MenuItem>
+            <MenuItem value={'comY'}>COM.y</MenuItem>
+            <MenuItem value={'comZ'}>COM.z</MenuItem>
           </Select>
         </div>
 

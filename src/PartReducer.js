@@ -3,26 +3,26 @@ import { calculateTotalMass } from "./utils/calculateTotalMass";
 import { calculateCenterOfMass } from "./utils/calculateCenterOfMass";
 
 const initialParts = [
-    { name: 'Hull', mass: 5000, centerOfMass: { x: 0, y: 0, z: -2 } },
-    { name: 'Keel', mass: 800, centerOfMass: { x: 0, y: 0, z: -4 } },
-    { name: 'Mast', mass: 1200, centerOfMass: { x: 0, y: 0, z: 8 } },
-    { name: 'Boom', mass: 150, centerOfMass: { x: 0, y: 2, z: 8 } },
-    { name: 'Sails', mass: 200, centerOfMass: { x: 0, y: 5, z: 8 } },
-    { name: 'Rudder', mass: 300, centerOfMass: { x: 0, y: 0, z: -6 } },
-    { name: 'Winches', mass: 50, centerOfMass: { x: 0, y: 3, z: 2 } },
-    { name: 'Deck', mass: 1000, centerOfMass: { x: 0, y: 0, z: 2 } },
-    { name: 'Cockpit', mass: 400, centerOfMass: { x: 0, y: 1, z: 4 } },
-    { name: 'Bow Sprit', mass: 120, centerOfMass: { x: 0, y: 0, z: 10 } },
-    { name: 'Crew Quarters', mass: 700, centerOfMass: { x: 0, y: 0, z: 1 } },
-    { name: 'Navigation Station', mass: 80, centerOfMass: { x: 0, y: 2, z: 6 } },
-    { name: 'Water Ballast Tanks', mass: 600, centerOfMass: { x: 0, y: 0, z: -3 } },
-    { name: 'Hydraulic Systems', mass: 120, centerOfMass: { x: 0, y: 4, z: 2 } },
-    { name: 'Electrical Systems', mass: 90, centerOfMass: { x: 0, y: 0, z: 3 } },
-    { name: 'Carbon Fiber Mast Sections', mass: 350, centerOfMass: { x: 0, y: 0, z: 9 } },
-    { name: 'Carbon Fiber Rigging', mass: 180, centerOfMass: { x: 0, y: 0, z: 8 } },
-    { name: 'Satellite Communication System', mass: 40, centerOfMass: { x: 0, y: 3, z: 5 } },
-    { name: 'Emergency Life Rafts', mass: 120, centerOfMass: { x: 0, y: 0, z: 1 } },
-  ];
+  { name: 'Hull', mass: 5000, centerOfMass: { x: 12.5, y: 0.5, z: -7.5 } },
+  { name: 'Keel', mass: 800, centerOfMass: { x: -5, y: 1, z: 20 } },
+  { name: 'Mast', mass: 1200, centerOfMass: { x: 8, y: -2, z: -2 } },
+  { name: 'Boom', mass: 150, centerOfMass: { x: -9, y: 2, z: 15 } },
+  { name: 'Sails', mass: 200, centerOfMass: { x: 14, y: -1.5, z: 5 } },
+  { name: 'Rudder', mass: 300, centerOfMass: { x: -6, y: 1.5, z: -8 } },
+  { name: 'Winches', mass: 50, centerOfMass: { x: 3, y: -2, z: 18 } },
+  { name: 'Deck', mass: 1000, centerOfMass: { x: -10, y: 2, z: -4 } },
+  { name: 'Cockpit', mass: 400, centerOfMass: { x: 7, y: -1, z: 12 } },
+  { name: 'Bow Sprit', mass: 120, centerOfMass: { x: 0, y: 2.5, z: 0 } },
+  { name: 'Crew Quarters', mass: 700, centerOfMass: { x: 4, y: -1.5, z: -9 } },
+  { name: 'Navigation Station', mass: 80, centerOfMass: { x: -2, y: 0.5, z: 6 } },
+  { name: 'Water Ballast Tanks', mass: 600, centerOfMass: { x: 5, y: 2, z: 25 } },
+  { name: 'Hydraulic Systems', mass: 120, centerOfMass: { x: -8, y: -1.5, z: 14 } },
+  { name: 'Electrical Systems', mass: 90, centerOfMass: { x: 9, y: 2, z: -5 } },
+  { name: 'Carbon Fiber Mast Sections', mass: 350, centerOfMass: { x: 1, y: 0.5, z: 8 } },
+  { name: 'Carbon Fiber Rigging', mass: 180, centerOfMass: { x: -3, y: -1, z: 10 } },
+  { name: 'Satellite Communication System', mass: 40, centerOfMass: { x: 6, y: 1.5, z: 21 } },
+  { name: 'Emergency Life Rafts', mass: 120, centerOfMass: { x: -7, y: 0.5, z: -3 } },
+];
 
 export const initialState = {
     totalMass: calculateTotalMass(initialParts),
@@ -41,7 +41,7 @@ const partReducer = (state, action) => {
   
         return {
           ...state,
-          parts: payload.parts
+          parts: payload.parts,
         };
 
       case "DELETE_PART":

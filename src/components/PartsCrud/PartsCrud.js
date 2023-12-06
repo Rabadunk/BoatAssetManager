@@ -44,13 +44,13 @@ const PartsCrud = () => {
         return false;
     }
 
-    if (newPartCOM.y > 26.5 || newPartCOM.y < -10) {
-        alert('Please enter a y coordinate between -10 and 26.5');
+    if (newPartCOM.y > 2.5 || newPartCOM.y < -2.5) {
+        alert('Please enter a y coordinate between -2.5 and 2.5');
         return false;
     }
 
-    if (newPartCOM.z > 2.5 || newPartCOM.z < -2.5) {
-        alert('Please enter a z coordinate between -2.5 and 2.5');
+    if (newPartCOM.z > 26.5 || newPartCOM.z < -10) {
+        alert('Please enter a z coordinate between -10 and 26.5');
         return false;
     }
 

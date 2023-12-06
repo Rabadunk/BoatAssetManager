@@ -48,9 +48,17 @@ export const PartsProvider = ({ children }) => {
             case 'mass':
                 updatedParts.sort((a,b) => a.mass - b.mass);
                 break;
-            case 'centerOfMass':
+            case 'comX':
                 updatedParts.sort((a,b) => a.centerOfMass.x - b.centerOfMass.x);
                 break;
+            case 'comY':
+              updatedParts.sort((a,b) => a.centerOfMass.y - b.centerOfMass.y);
+              break;
+            case 'comZ':
+              updatedParts.sort((a,b) => a.centerOfMass.z - b.centerOfMass.z);
+              break;
+
+
             default:
                 updatedParts.sort((a,b) => a.name - b.name);
         }

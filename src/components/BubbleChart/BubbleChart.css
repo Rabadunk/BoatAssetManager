@@ -3,6 +3,8 @@
     width: 500px;
     border-radius: 10px;
     background-image: url("../../assets/zy.png");
+    background-size: cover;
+    background-repeat: no-repeat;
     margin-top: 10px;
     margin-left: 20px;
 }

@@ -6,7 +6,7 @@ import './BubbleChart.css';
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 const BubbleChart = () => {
-  const { parts } = useParts();
+  const { parts, totalMass, centerOfMass } = useParts();
 
   const options = {
     backgroundColor: "transparent",
@@ -30,6 +30,8 @@ const BubbleChart = () => {
     data: [
       {
         type: 'bubble',
+        name: "Components",
+        showInLegend: true,
         toolTipContent: '<b>{name}</b><br/>X: {z}<br/>Y: {y}<br/>Z: {x}<br/>Mass: {mass}',
         dataPoints: parts.map((part) => {
           let datapoint = {
@@ -38,11 +40,26 @@ const BubbleChart = () => {
             x: part.centerOfMass.y,
             y: part.centerOfMass.z,
             z: part.centerOfMass.x,
-            markerColor: "rgba(1000, 0, 0, 0.5)",
+            markerColor: "rgba(0, 0, 1000, 0.5)",
         }
         
         return datapoint; }),
+
       },
+      {
+        type: 'bubble',
+        name: "Yacht",
+        showInLegend: true,
+        toolTipContent: '<b>{name}</b><br/>X: {z}<br/>Y: {y}<br/>Z: {x}<br/>Mass: {mass}',
+        dataPoints: [{
+            name: "Boat",
+            mass: Number(totalMass),
+            x: Number(centerOfMass.y),
+            y: Number(centerOfMass.z),
+            z: Number(centerOfMass.x),
+            markerColor: "rgba(1000, 0, 0, 1)",
+        }]
+      }
     ],
   };
 

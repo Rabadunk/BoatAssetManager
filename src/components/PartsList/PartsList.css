@@ -18,6 +18,16 @@
     padding: 0;
 }
 
+.part-list::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .part-list{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
 .list-item-title {
     text-align: center;
     border-top: 6px solid rgba(1, 1, 1, 0.1);

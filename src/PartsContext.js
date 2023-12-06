@@ -15,7 +15,7 @@ export const PartsProvider = ({ children }) => {
           updateCenterOfMass(updatedParts);
       
         dispatch({
-          type: "ADD_PART",
+          type: "UPDATE_PART",
           payload: {
             parts: updatedParts
           }
@@ -29,7 +29,7 @@ export const PartsProvider = ({ children }) => {
         updateCenterOfMass(updatedParts);
       
         dispatch({
-          type: "EDIT_PART",
+          type: "UPDATE_PART",
           payload: {
             parts: updatedParts
           }
@@ -74,7 +74,7 @@ export const PartsProvider = ({ children }) => {
             updateCenterOfMass(updatedParts);
           
             dispatch({
-              type: "DELETE_PART",
+              type: "UPDATE_PART",
               payload: {
                 parts: updatedParts
               }

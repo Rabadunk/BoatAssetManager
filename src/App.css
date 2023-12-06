@@ -3,13 +3,11 @@
   height: 100vh;
   margin: 0;
   padding: 0;
-  background-color: yellow;
 }
 
-.partsList {
+.parts-list {
   width: 35%;
   height: 100vh;
-  background-color: red;
 }
 
 .stats {
@@ -17,4 +15,12 @@
   right: 10px;
   top: 10px;
   background-color: white;
+}
+
+.density-heat-map {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 65%;
+  height: 100vh;
 }

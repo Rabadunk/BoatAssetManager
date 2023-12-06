@@ -8,9 +8,9 @@ You can of course make use of any open-source library and/or JavaScript framewor
 
 Additionally, you may have a go at one of the following bonus tasks (or at least think about the way you would implement the relevant feature):
 
-Bonus 1: Add a 'read-only' mode so that the components and components list cannot be edited by default
-Bonus 2: Add sorting on each column so that items can be sorted by weight or coordinate. Optional: add filters
-Bonus 3: Add a chart to plot the component (and boat)'s COGs on the YZ plane. Optional: drag and drop components to move them around ...
+- Bonus 1: Add a 'read-only' mode so that the components and components list cannot be edited by default
+- Bonus 2: Add sorting on each column so that items can be sorted by weight or coordinate. Optional: add filters
+- Bonus 3: Add a chart to plot the component (and boat)'s COGs on the YZ plane. Optional: drag and drop components to move them around ...
 
 ## Checklist
 

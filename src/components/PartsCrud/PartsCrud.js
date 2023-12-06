@@ -79,14 +79,14 @@ const PartsCrud = () => {
 
             <Box className="modal-input-row">
                 <h5>Mass</h5>
-                <TextField id="outlined-basic" label="Mass" variant="outlined" type="number" onChange={(event)=>{setNewPartMass(event.target.value)}} className="modal-input"/>
+                <TextField id="outlined-basic" label="Mass" variant="outlined" type="number" onChange={(event)=>{setNewPartMass(Number(event.target.value))}} className="modal-input"/>
             </Box>
 
             <Box className="modal-input-row">
                 <h5>Center Of Mass</h5>
-                <TextField id="outlined-basic" label="X" variant="outlined" type="number" onChange={(event)=>{setNewPartCOM({x: event.target.value, y: newPartCOM.y, z: newPartCOM.z})}} className="modal-input"/>
-                <TextField id="outlined-basic" label="Y" variant="outlined" type="number" onChange={(event)=>{setNewPartCOM({x: newPartCOM.x, y: event.target.value, z: newPartCOM.z})}}  className="modal-input"/>
-                <TextField id="outlined-basic" label="Z" variant="outlined" type="number" onChange={(event)=>{setNewPartCOM({x: newPartCOM.x, y: newPartCOM.y, z: event.target.value})}} className="modal-input"/>
+                <TextField id="outlined-basic" label="X" variant="outlined" type="number" onChange={(event)=>{setNewPartCOM({x: Number(event.target.value), y: newPartCOM.y, z: newPartCOM.z})}} className="modal-input"/>
+                <TextField id="outlined-basic" label="Y" variant="outlined" type="number" onChange={(event)=>{setNewPartCOM({x: newPartCOM.x, y: Number(event.target.value), z: newPartCOM.z})}}  className="modal-input"/>
+                <TextField id="outlined-basic" label="Z" variant="outlined" type="number" onChange={(event)=>{setNewPartCOM({x: newPartCOM.x, y: newPartCOM.y, z: Number(event.target.value)})}} className="modal-input"/>
             </Box>
 
 
@@ -113,14 +113,14 @@ const PartsCrud = () => {
 
             <Box className="modal-input-row">
                 <h5>Mass</h5>
-                <TextField id="outlined-basic" defaultValue={parts[selectedIndex].mass}  variant="outlined" type="number" onChange={(event)=>{setNewPartMass(event.target.value)}} className="modal-input"/>
+                <TextField id="outlined-basic" defaultValue={parts[selectedIndex].mass}  variant="outlined" type="number" onChange={(event)=>{setNewPartMass(Number(event.target.value))}} className="modal-input"/>
             </Box>
 
             <Box className="modal-input-row">
                 <h5>Center Of Mass</h5>
-                <TextField id="outlined-basic" defaultValue={parts[selectedIndex].centerOfMass.x} variant="outlined" type="number" onChange={(event)=>{setNewPartCOM({x: event.target.value, y: newPartCOM.y, z: newPartCOM.z})}} className="modal-input"/>
-                <TextField id="outlined-basic" defaultValue={parts[selectedIndex].centerOfMass.y} variant="outlined" type="number" onChange={(event)=>{setNewPartCOM({x: newPartCOM.x, y: event.target.value, z: newPartCOM.z})}}  className="modal-input"/>
-                <TextField id="outlined-basic" defaultValue={parts[selectedIndex].centerOfMass.z} variant="outlined" type="number" onChange={(event)=>{setNewPartCOM({x: newPartCOM.x, y: newPartCOM.y, z: event.target.value})}} className="modal-input"/>
+                <TextField id="outlined-basic" defaultValue={parts[selectedIndex].centerOfMass.x} variant="outlined" type="number" onChange={(event)=>{setNewPartCOM({x: Number(event.target.value), y: newPartCOM.y, z: newPartCOM.z})}} className="modal-input"/>
+                <TextField id="outlined-basic" defaultValue={parts[selectedIndex].centerOfMass.y} variant="outlined" type="number" onChange={(event)=>{setNewPartCOM({x: newPartCOM.x, y: Number(event.target.value), z: newPartCOM.z})}}  className="modal-input"/>
+                <TextField id="outlined-basic" defaultValue={parts[selectedIndex].centerOfMass.z} variant="outlined" type="number" onChange={(event)=>{setNewPartCOM({x: newPartCOM.x, y: newPartCOM.y, z: Number(event.target.value)})}} className="modal-input"/>
             </Box>
 
 

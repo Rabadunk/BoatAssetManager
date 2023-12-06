@@ -24,6 +24,7 @@ Additionally, you may have a go at one of the following bonus tasks (or at least
 - [x] Read only mode
 - [x] Map parts mass on a Y-Z plane
 - [x] Add data validation checks
+- [ ] Make data points dragable
 - [ ] Calculate boats center of gravity
 - [ ] Map parts mass on a X - Y plane
 

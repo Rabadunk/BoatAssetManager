@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import CanvasJSReact from '@canvasjs/react-charts';
 import useParts from '../../PartsContext';
 import './BubbleChart.css';

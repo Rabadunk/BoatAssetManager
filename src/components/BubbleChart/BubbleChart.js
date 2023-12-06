@@ -32,7 +32,7 @@ const BubbleChart = () => {
         type: 'bubble',
         name: "Components",
         showInLegend: true,
-        toolTipContent: '<b>{name}</b><br/>X: {z}<br/>Y: {y}<br/>Z: {x}<br/>Mass: {mass}',
+        toolTipContent: '<b>{name}</b><br/>X: {z} m<br/>Y: {x} m<br/>Z: {y} m<br/>Mass: {mass} kg',
         dataPoints: parts.map((part) => {
           let datapoint = {
             name: part.name,
@@ -50,7 +50,7 @@ const BubbleChart = () => {
         type: 'bubble',
         name: "Yacht",
         showInLegend: true,
-        toolTipContent: '<b>{name}</b><br/>X: {z}<br/>Y: {y}<br/>Z: {x}<br/>Mass: {mass}',
+        toolTipContent: '<b>{name}</b><br/>X: {z} m<br/>Y: {y} m<br/>Z: {x} m<br/>Mass: {mass} kg',
         dataPoints: [{
             name: "Boat",
             mass: Number(totalMass),
